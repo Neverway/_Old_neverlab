@@ -1,13 +1,14 @@
 //=========== Written by Arthur W. Sheldon AKA Lizband_UCC ====================
 // 
-// Purpose:
-//			Move a game object using keycode inputs
+// Purpose: 
 // Applied to: 
-//			The root of the controllable game object
 // Notes: 
 //
 //=============================================================================
 
+using System.Collections;
+using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 
 public class Linear_Controller_2D : MonoBehaviour
@@ -15,8 +16,9 @@ public class Linear_Controller_2D : MonoBehaviour
     //=-----------------=
     // Public Variables
     //=-----------------=
-    [Tooltip("Multiplier for how fast the object will move")]
     [SerializeField] private float moveSpeed;
+    [SerializeField] private bool invertHorizontalAxis;
+    [SerializeField] private bool invertVerticalAxis;
 
 
     //=-----------------=
@@ -52,11 +54,19 @@ public class Linear_Controller_2D : MonoBehaviour
 	    // Horizontal
 	    if (Input.GetKey(KeyCode.LeftArrow))
 	    {
-		    movement.x = -1;
+		    movement.x = invertHorizontalAxis switch
+		    {
+			    (true) => 1,
+			    (false) => -1
+		    };
 	    }
 	    else if (Input.GetKey(KeyCode.RightArrow))
 	    {
-		    movement.x = 1;
+		    movement.x = invertHorizontalAxis switch
+		    {
+			    (true) => -1,
+			    (false) => 1
+		    };
 	    }
 	    else
 	    {
@@ -66,11 +76,19 @@ public class Linear_Controller_2D : MonoBehaviour
 	    // Vertical
 	    if (Input.GetKey(KeyCode.UpArrow))
 	    {
-		    movement.y = 1;
+		    movement.y = invertVerticalAxis switch
+		    {
+			    (true) => -1,
+			    (false) => 1
+		    };
 	    }
 	    else if (Input.GetKey(KeyCode.DownArrow))
 	    {
-		    movement.y = -1;
+		    movement.y = invertVerticalAxis switch
+		    {
+			    (true) => 1,
+			    (false) => -1
+		    };
 	    }
 	    else
 	    {
@@ -83,4 +101,5 @@ public class Linear_Controller_2D : MonoBehaviour
     // External Functions
     //=-----------------=
 }
+
 
