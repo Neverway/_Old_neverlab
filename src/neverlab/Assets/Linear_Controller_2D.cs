@@ -62,6 +62,20 @@ public class Linear_Controller_2D : MonoBehaviour
 	    {
 		    movement.x = 0;
 	    }
+	    
+	    // Vertical
+	    if (Input.GetKey(KeyCode.UpArrow))
+	    {
+		    movement.y = 1;
+	    }
+	    else if (Input.GetKey(KeyCode.DownArrow))
+	    {
+		    movement.y = -1;
+	    }
+	    else
+	    {
+		    movement.y = 0;
+	    }
     }
 
 
