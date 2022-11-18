@@ -52,7 +52,7 @@ public class Linear_Controller_2D : MonoBehaviour
     private void UserInput()
     {
 	    // Horizontal
-	    if (Input.GetKey(KeyCode.LeftArrow))
+	    if (Input.GetButton("MoveLeft"))
 	    {
 		    movement.x = invertHorizontalAxis switch
 		    {
@@ -60,7 +60,7 @@ public class Linear_Controller_2D : MonoBehaviour
 			    (false) => -1
 		    };
 	    }
-	    else if (Input.GetKey(KeyCode.RightArrow))
+	    else if (Input.GetButton("MoveRight"))
 	    {
 		    movement.x = invertHorizontalAxis switch
 		    {
@@ -74,7 +74,7 @@ public class Linear_Controller_2D : MonoBehaviour
 	    }
 	    
 	    // Vertical
-	    if (Input.GetKey(KeyCode.UpArrow))
+	    if (Input.GetButton("MoveUp"))
 	    {
 		    movement.y = invertVerticalAxis switch
 		    {
@@ -82,7 +82,7 @@ public class Linear_Controller_2D : MonoBehaviour
 			    (false) => 1
 		    };
 	    }
-	    else if (Input.GetKey(KeyCode.DownArrow))
+	    else if (Input.GetButton("MoveDown"))
 	    {
 		    movement.y = invertVerticalAxis switch
 		    {
