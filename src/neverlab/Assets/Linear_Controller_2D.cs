@@ -24,7 +24,9 @@ public class Linear_Controller_2D : MonoBehaviour
     //=-----------------=
     // Private Variables
     //=-----------------=
-    private Vector3 movement;
+    private Vector2 movement;
+    private int horizontalInversion;
+    private int verticalInversion;
     
     
     //=-----------------=
@@ -43,7 +45,15 @@ public class Linear_Controller_2D : MonoBehaviour
     private void FixedUpdate()
     {
 	    // Update object position
-	    transform.Translate(movement * moveSpeed * Time.deltaTime); 
+	    transform.Translate(movement * moveSpeed * Time.deltaTime);
+	    
+	    // Set horizontal inverted inputs
+	    if (invertHorizontalAxis) horizontalInversion = -1;
+	    else horizontalInversion = 1;
+	    
+	    // Set vertical inverted inputs
+	    if (invertVerticalAxis) verticalInversion = -1;
+	    else verticalInversion = 1;
     }
     
     //=-----------------=
@@ -52,48 +62,14 @@ public class Linear_Controller_2D : MonoBehaviour
     private void UserInput()
     {
 	    // Horizontal
-	    if (Input.GetButton("MoveLeft"))
-	    {
-		    movement.x = invertHorizontalAxis switch
-		    {
-			    (true) => 1,
-			    (false) => -1
-		    };
-	    }
-	    else if (Input.GetButton("MoveRight"))
-	    {
-		    movement.x = invertHorizontalAxis switch
-		    {
-			    (true) => -1,
-			    (false) => 1
-		    };
-	    }
-	    else
-	    {
-		    movement.x = 0;
-	    }
+	    if (Input.GetButton("MoveLeft")) movement.x = -1 * horizontalInversion;
+	    else if (Input.GetButton("MoveRight")) movement.x = 1 * horizontalInversion;
+	    else movement.x = 0;
 	    
 	    // Vertical
-	    if (Input.GetButton("MoveUp"))
-	    {
-		    movement.y = invertVerticalAxis switch
-		    {
-			    (true) => -1,
-			    (false) => 1
-		    };
-	    }
-	    else if (Input.GetButton("MoveDown"))
-	    {
-		    movement.y = invertVerticalAxis switch
-		    {
-			    (true) => 1,
-			    (false) => -1
-		    };
-	    }
-	    else
-	    {
-		    movement.y = 0;
-	    }
+	    if (Input.GetButton("MoveUp")) movement.y = 1 * verticalInversion;
+	    else if (Input.GetButton("MoveDown")) movement.y = -1 * verticalInversion;
+	    else movement.y = 0;
     }
 
 
