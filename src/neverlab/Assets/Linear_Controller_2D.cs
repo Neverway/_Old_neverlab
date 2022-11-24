@@ -10,7 +10,7 @@ public class Linear_Controller_2D : MonoBehaviour
     //=-----------------=
     // Public Variables
     //=-----------------=
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float speed;
     [SerializeField] private bool invertHorizontalAxis;
     [SerializeField] private bool invertVerticalAxis;
 
@@ -54,13 +54,13 @@ public class Linear_Controller_2D : MonoBehaviour
     private void UserInput()
     {
 	    // Horizontal
-	    if (Input.GetButton("MoveLeft")) movement.x = -moveSpeed;
-	    else if (Input.GetButton("MoveRight")) movement.x = moveSpeed;
+	    if (Input.GetButton("MoveLeft")) movement.x = -speed;
+	    else if (Input.GetButton("MoveRight")) movement.x = speed;
 	    else movement.x = 0;
 	    
 	    // Vertical
-	    if (Input.GetButton("MoveUp")) movement.y = moveSpeed;
-	    else if (Input.GetButton("MoveDown")) movement.y = -moveSpeed;
+	    if (Input.GetButton("MoveUp")) movement.y = speed;
+	    else if (Input.GetButton("MoveDown")) movement.y = -speed;
 	    else movement.y = 0;
     }
 
