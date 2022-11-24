@@ -45,7 +45,7 @@ public class Linear_Controller_2D : MonoBehaviour
 	    if (invertVerticalAxis) movement.y *= -1;
 
 	    // Update object position
-	    transform.Translate(movement * moveSpeed * Time.deltaTime);
+	    transform.Translate(movement * Time.deltaTime);
     }
     
     //=-----------------=
@@ -54,13 +54,13 @@ public class Linear_Controller_2D : MonoBehaviour
     private void UserInput()
     {
 	    // Horizontal
-	    if (Input.GetButton("MoveLeft")) movement.x = -1;
-	    else if (Input.GetButton("MoveRight")) movement.x = 1;
+	    if (Input.GetButton("MoveLeft")) movement.x = -moveSpeed;
+	    else if (Input.GetButton("MoveRight")) movement.x = moveSpeed;
 	    else movement.x = 0;
 	    
 	    // Vertical
-	    if (Input.GetButton("MoveUp")) movement.y = 1;
-	    else if (Input.GetButton("MoveDown")) movement.y = -1;
+	    if (Input.GetButton("MoveUp")) movement.y = moveSpeed;
+	    else if (Input.GetButton("MoveDown")) movement.y = -moveSpeed;
 	    else movement.y = 0;
     }
 
