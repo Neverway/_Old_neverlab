@@ -77,5 +77,3 @@ public class Linear_Controller_2D : MonoBehaviour
     // External Functions
     //=-----------------=
 }
-
-
