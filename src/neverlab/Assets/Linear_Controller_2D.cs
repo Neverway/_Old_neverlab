@@ -1,10 +1,4 @@
 //=========== Written by Arthur W. Sheldon AKA Lizband_UCC ====================
-// 
-// Purpose: 
-// Applied to: 
-// Notes: 
-//
-//=============================================================================
 
 using System.Collections;
 using System.Collections.Generic;
@@ -16,7 +10,7 @@ public class Linear_Controller_2D : MonoBehaviour
     //=-----------------=
     // Public Variables
     //=-----------------=
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float speed;
     [SerializeField] private bool invertHorizontalAxis;
     [SerializeField] private bool invertVerticalAxis;
 
@@ -24,7 +18,7 @@ public class Linear_Controller_2D : MonoBehaviour
     //=-----------------=
     // Private Variables
     //=-----------------=
-    private Vector2 movement;
+    private Vector2 velocity;
     private int horizontalInversion;
     private int verticalInversion;
     
@@ -44,16 +38,14 @@ public class Linear_Controller_2D : MonoBehaviour
 
     private void FixedUpdate()
     {
+	    // Invert horizontal axis
+	    if (invertHorizontalAxis) velocity.x *= -1;
+	    
+	    // Invert vertical axis
+	    if (invertVerticalAxis) velocity.y *= -1;
+
 	    // Update object position
-	    transform.Translate(movement * moveSpeed * Time.deltaTime);
-	    
-	    // Set horizontal inverted inputs
-	    if (invertHorizontalAxis) horizontalInversion = -1;
-	    else horizontalInversion = 1;
-	    
-	    // Set vertical inverted inputs
-	    if (invertVerticalAxis) verticalInversion = -1;
-	    else verticalInversion = 1;
+	    transform.Translate(velocity * Time.deltaTime);
     }
     
     //=-----------------=
@@ -62,14 +54,14 @@ public class Linear_Controller_2D : MonoBehaviour
     private void UserInput()
     {
 	    // Horizontal
-	    if (Input.GetButton("MoveLeft")) movement.x = -1 * horizontalInversion;
-	    else if (Input.GetButton("MoveRight")) movement.x = 1 * horizontalInversion;
-	    else movement.x = 0;
+	    if (Input.GetButton("MoveLeft")) velocity.x = -speed;
+	    else if (Input.GetButton("MoveRight")) velocity.x = speed;
+	    else velocity.x = 0;
 	    
 	    // Vertical
-	    if (Input.GetButton("MoveUp")) movement.y = 1 * verticalInversion;
-	    else if (Input.GetButton("MoveDown")) movement.y = -1 * verticalInversion;
-	    else movement.y = 0;
+	    if (Input.GetButton("MoveUp")) velocity.y = speed;
+	    else if (Input.GetButton("MoveDown")) velocity.y = -speed;
+	    else velocity.y = 0;
     }
 
 
@@ -77,5 +69,3 @@ public class Linear_Controller_2D : MonoBehaviour
     // External Functions
     //=-----------------=
 }
-
-
