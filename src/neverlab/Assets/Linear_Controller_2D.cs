@@ -18,7 +18,7 @@ public class Linear_Controller_2D : MonoBehaviour
     //=-----------------=
     // Private Variables
     //=-----------------=
-    private Vector2 movement;
+    private Vector2 velocity;
     private int horizontalInversion;
     private int verticalInversion;
     
@@ -39,13 +39,13 @@ public class Linear_Controller_2D : MonoBehaviour
     private void FixedUpdate()
     {
 	    // Invert horizontal axis
-	    if (invertHorizontalAxis) movement.x *= -1;
+	    if (invertHorizontalAxis) velocity.x *= -1;
 	    
 	    // Invert vertical axis
-	    if (invertVerticalAxis) movement.y *= -1;
+	    if (invertVerticalAxis) velocity.y *= -1;
 
 	    // Update object position
-	    transform.Translate(movement * Time.deltaTime);
+	    transform.Translate(velocity * Time.deltaTime);
     }
     
     //=-----------------=
@@ -54,14 +54,14 @@ public class Linear_Controller_2D : MonoBehaviour
     private void UserInput()
     {
 	    // Horizontal
-	    if (Input.GetButton("MoveLeft")) movement.x = -speed;
-	    else if (Input.GetButton("MoveRight")) movement.x = speed;
-	    else movement.x = 0;
+	    if (Input.GetButton("MoveLeft")) velocity.x = -speed;
+	    else if (Input.GetButton("MoveRight")) velocity.x = speed;
+	    else velocity.x = 0;
 	    
 	    // Vertical
-	    if (Input.GetButton("MoveUp")) movement.y = speed;
-	    else if (Input.GetButton("MoveDown")) movement.y = -speed;
-	    else movement.y = 0;
+	    if (Input.GetButton("MoveUp")) velocity.y = speed;
+	    else if (Input.GetButton("MoveDown")) velocity.y = -speed;
+	    else velocity.y = 0;
     }
 
 
