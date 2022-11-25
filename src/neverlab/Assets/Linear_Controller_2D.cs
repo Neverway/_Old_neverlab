@@ -1,10 +1,4 @@
 //=========== Written by Arthur W. Sheldon AKA Lizband_UCC ====================
-// 
-// Purpose: 
-// Applied to: 
-// Notes: 
-//
-//=============================================================================
 
 using System.Collections;
 using System.Collections.Generic;
