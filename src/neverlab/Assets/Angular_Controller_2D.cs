@@ -7,14 +7,14 @@ public class Angular_Controller_2D : MonoBehaviour
     //=-----------------=
     // Public Variables
     //=-----------------=
-    public float speed;
+    public float angularSpeed;
     [SerializeField] private bool invertRotationalAxis;
 
 
     //=-----------------=
     // Private Variables
     //=-----------------=
-    private Vector3 angularVelocity;
+    private float angularVelocity;
     
     
     //=-----------------=
@@ -33,10 +33,11 @@ public class Angular_Controller_2D : MonoBehaviour
     private void FixedUpdate()
     {
 	    // Invert horizontal axis
-	    if (invertRotationalAxis) angularVelocity.z *= -1;
+	    if (invertRotationalAxis) angularVelocity *= -1;
 
 	    // Update object position
-	    transform.Rotate(angularVelocity * Time.deltaTime);
+	    var rotation = angularVelocity * Time.deltaTime;
+	    transform.Rotate(0,0, rotation);
     }
 
     //=-----------------=
@@ -45,9 +46,9 @@ public class Angular_Controller_2D : MonoBehaviour
     private void UserInput()
     {
 	    // Horizontal
-	    if (Input.GetButton("RotateLeft")) angularVelocity.z = speed;
-	    else if (Input.GetButton("RotateRight")) angularVelocity.z = -speed;
-	    else angularVelocity.z = 0;
+	    if (Input.GetButton("RotateLeft")) angularVelocity = angularSpeed;
+	    else if (Input.GetButton("RotateRight")) angularVelocity = -angularSpeed;
+	    else angularVelocity = 0;
     }
     
     
