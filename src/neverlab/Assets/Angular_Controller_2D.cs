@@ -1,15 +1,5 @@
 //========== Neverway 2022 Project Script | Written by Unknown Dev ============
-// 
-// Purpose: 
-// Applied to: 
-// Editor script: 
-// Notes: 
-//
-//=============================================================================
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Angular_Controller_2D : MonoBehaviour
@@ -35,11 +25,6 @@ public class Angular_Controller_2D : MonoBehaviour
     //=-----------------=
     // Mono Functions
     //=-----------------=
-    private void Start()
-    {
-	
-    }
-
     private void Update()
     {
 	    UserInput();
@@ -70,4 +55,3 @@ public class Angular_Controller_2D : MonoBehaviour
     // External Functions
     //=-----------------=
 }
-
