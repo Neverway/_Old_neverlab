@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 1584218151}
   - component: {fileID: 1584218154}
   - component: {fileID: 1584218153}
+  - component: {fileID: 1584218155}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -316,6 +317,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a2611a0bcbf6f1cad825fb1a07cef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 15
   invertHorizontalAxis: 0
   invertVerticalAxis: 0
+--- !u!114 &1584218155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584218150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55abff178bd7416cf85115eef84df71b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSpeed: 1024
+  projectilePrefab: {fileID: 8117971079539322312, guid: 67c405a1e52c53f87ab540bb85fbdc26, type: 3}
+  spawnTransform: {fileID: 1584218152}
