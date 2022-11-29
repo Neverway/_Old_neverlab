@@ -332,6 +332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55abff178bd7416cf85115eef84df71b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 50
+  projectileSpeed: 1024
   projectilePrefab: {fileID: 8117971079539322312, guid: 67c405a1e52c53f87ab540bb85fbdc26, type: 3}
   spawnTransform: {fileID: 1584218152}
