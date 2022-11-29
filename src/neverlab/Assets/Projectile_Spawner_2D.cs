@@ -1,9 +1,8 @@
 //========== Neverway 2022 Project Script | Written by Unknown Dev ============
 // 
-// Purpose: 
-// Applied to: 
-// Editor script: 
-// Notes: 
+// Purpose: Spawn a target object at specified position moving at a set speed
+// Applied to: The object that creates a projectile (like a gun or turret)
+// Notes: Projectiles move in their transform.forward (+Y for 2D, +Z for 3D)
 //
 //=============================================================================
 
