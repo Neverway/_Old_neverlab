@@ -16,6 +16,7 @@ public class Projectile_Spawner_2D : MonoBehaviour
     //=-----------------=
     // Public Variables
     //=-----------------=
+    [SerializeField] private float projectileSpeed;
 
 
     //=-----------------=
@@ -56,7 +57,9 @@ public class Projectile_Spawner_2D : MonoBehaviour
     //=-----------------=
     public void SpawnProjectile()
     {
-	    Instantiate(projectilePrefab, spawnTransform.position, spawnTransform.rotation);
+	    var projectile = Instantiate(projectilePrefab, spawnTransform.position, spawnTransform.rotation);
+	    var projectileRigidbody = projectile.GetComponent<Rigidbody2D>();
+	    if (projectileRigidbody) projectileRigidbody.AddForce(transform.up*projectileSpeed,ForceMode2D.Force);
     }
 }
 
